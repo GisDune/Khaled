@@ -171,6 +171,8 @@
         border-radius: 5px;
     }
 }
+
+
     </style>
 </head>
 <body>
@@ -212,7 +214,8 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    
+    document.addEventListener('DOMContentLoaded', function() {
     var btn = document.querySelector('.hide-btn');
 
     // تغيير النص بناءً على حجم النافذة عند تحميل الصفحة لأول مرة
@@ -227,6 +230,10 @@
         } else {
             btn.innerHTML = '&#x1F448 undo'; // السهم يشير لليمين
         }
+    }
+});
+
+
         function showCV() {
             document.getElementById('cvContainer').style.display = 'flex';
             document.getElementById('mainContainer').style.display = 'none'; // إخفاء المحتوى الأساسي
