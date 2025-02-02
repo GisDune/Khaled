@@ -107,6 +107,70 @@
         .hide-btn:hover {
             background: rgb(71, 57, 57);
         }
+        @media screen and (max-width: 760px) {
+
+
+    .container {
+        width: 35%;
+        
+        padding: 10px;
+        text-align: center; /* توسيط النصوص */
+    }
+
+    h1 {
+        font-size: 1em;
+    }
+
+    p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+        margin: 5px auto;
+        display: block;
+    }
+
+    .cv-container {
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+    }
+
+    .cv-container img {
+        width: 100%;
+        margin-right: 4px;
+        display: block;
+    }
+
+    .cv-text {
+        width: 90%;
+        font-size: 0.9em;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .hide-btn {
+        font-size: 16px;
+        padding:  10px;
+        transform: translateX(270px) translateY(-20%);
+        border-radius: 10px 80px;
+        
+    
+    }
+
+    .undo-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
     </style>
 </head>
 <body>
@@ -148,6 +212,21 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.querySelector('.hide-btn');
+
+    // تغيير النص بناءً على حجم النافذة عند تحميل الصفحة لأول مرة
+    updateButtonText();
+
+    // تحديث النص عند تغيير حجم النافذة
+    window.addEventListener('resize', updateButtonText);
+
+    function updateButtonText() {
+        if (window.innerWidth <= 760) {
+            btn.innerHTML = 'Undo &#x1F449 '; // السهم يشير لليسار
+        } else {
+            btn.innerHTML = '&#x1F448 undo'; // السهم يشير لليمين
+        }
         function showCV() {
             document.getElementById('cvContainer').style.display = 'flex';
             document.getElementById('mainContainer').style.display = 'none'; // إخفاء المحتوى الأساسي
